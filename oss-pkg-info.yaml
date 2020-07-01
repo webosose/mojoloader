@@ -1,0 +1,4 @@
+Open Source Software Package:
+- name: webosOSE-mojoloader
+  source: git://github.com/webosose/mojoloader
+  license: Apache-2.0
