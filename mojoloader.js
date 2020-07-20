@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2018 LG Electronics, Inc.
+// Copyright (c) 2009-2020 LG Electronics, Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -342,16 +342,6 @@ if (typeof MojoLoader === 'undefined')
 				this._require = palmRequire;
 				this._loadFile = this._loadFileMojoOrTriton;
 			}
-			else if (typeof require !== "undefined")
-			{
-				var webOS = require('webos');
-				var sys = require('sys');
-				function nodeRequire (loader, filesArary) {
-				    return webOS.require(require, loader, filesArary);
-				}
-				this._require = nodeRequire;
-				this._loadFile = this._loadFileNode;
-			}
 			else
 			{
 				if (this._env == 'browser' && typeof palmGetResource === "undefined") 
@@ -376,11 +366,6 @@ if (typeof MojoLoader === 'undefined')
 			if (typeof process !== "undefined") {
 				return "node";
 			}
-			
-			if (typeof webOS !== "undefined") {
-				return "triton";
-			}
-			
 			return "browser";
 		},
 		
